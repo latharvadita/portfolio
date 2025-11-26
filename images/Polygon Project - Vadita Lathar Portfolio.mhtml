@@ -1,0 +1,390 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: file:///Users/vaditalathar/Desktop/Portfolio/polygon.html
+Subject: Polygon Project - Vadita Lathar Portfolio
+Date: Tue, 4 Nov 2025 16:18:42 -0500
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--6BHvtiflwBsCwRdjIB9IROigkl5txzRma9WcmvQQu4----"
+
+
+------MultipartBoundary--6BHvtiflwBsCwRdjIB9IROigkl5txzRma9WcmvQQu4----
+Content-Type: text/html
+Content-ID: <frame-287811B2947220135371266DA109AA8F@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///Users/vaditalathar/Desktop/Portfolio/polygon.html
+
+<!DOCTYPE html><html lang=3D"en"><head><meta http-equiv=3D"Content-Type" co=
+ntent=3D"text/html; charset=3DUTF-8">
+ =20
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1.0">
+  <title>Polygon Project - Vadita Lathar Portfolio</title>
+  <link rel=3D"stylesheet" href=3D"file:///Users/vaditalathar/Desktop/Portf=
+olio/style.css?v=3D3">
+  <link href=3D"https://fonts.googleapis.com/css2?family=3DPoppins:wght@300=
+;400;600&amp;display=3Dswap" rel=3D"stylesheet">
+</head>
+
+<body>
+  <!-- Particle Background -->
+  <div id=3D"particle-canvas"></div>
+
+  <!-- Navigation Bar -->
+  <nav class=3D"navbar">
+    <ul>
+      <li><a href=3D"file:///Users/vaditalathar/Desktop/Portfolio/index.htm=
+l#home">Home</a></li>
+      <li><a href=3D"file:///Users/vaditalathar/Desktop/Portfolio/index.htm=
+l#skills">Skills</a></li>
+      <li><a href=3D"file:///Users/vaditalathar/Desktop/Portfolio/index.htm=
+l#projects">Projects</a></li>
+      <li><a href=3D"file:///Users/vaditalathar/Desktop/Portfolio/index.htm=
+l#work">Experience</a></li>
+      <li><a href=3D"file:///Users/vaditalathar/Desktop/Portfolio/index.htm=
+l#contact">Contact</a></li>
+    </ul>
+    <button class=3D"theme-toggle">=E2=98=80=EF=B8=8F/=F0=9F=8C=99</button>
+  </nav>
+
+  <!-- Main Project Section -->
+  <main>
+    <section class=3D"project-page">
+      <div class=3D"project-container">
+        <!-- Video -->
+        <video class=3D"project-video" controls=3D"">
+          <source src=3D"file:///Users/vaditalathar/Desktop/Portfolio/video=
+s/polygon.mov" type=3D"video/mp4">
+          Your browser does not support the video tag.
+        </video>
+
+        <!-- Text next to video (matches video height) -->
+        <div class=3D"project-text-side">
+          <h2>Polygon Project</h2>
+          <p>
+            Imagine a canvas where shapes come alive=E2=80=94this is the <s=
+trong>Polygon Project</strong>.=20
+            It turns basic programming into a colorful playground, blending=
+ <em>object-oriented design</em> with a dash of fun experimentation.
+          </p>
+
+          <p>
+            Two main classes=E2=80=94<strong>Vertex</strong> and <strong>Po=
+lygon</strong>=E2=80=94bring order to creative chaos.
+            Vertices store points, polygons assemble them into dynamic, eye=
+-catching shapes, each with vibrant colors and playful transparency.
+          </p>
+
+          <p>
+            With a few clicks, you can build shapes from scratch. Left-clic=
+k to place vertices, right-click to complete your polygon, and watch as you=
+r geometric creations spring to life on the screen.
+          </p>
+        </div>
+      </div>
+
+      <!-- Text below video (full width) -->
+      <div class=3D"project-text-full">
+        <p>
+          The application also supports intuitive keyboard controls: press =
+<strong>e</strong> to erase the most recent polygon,=20
+          <strong>c</strong> to clear the canvas, or use <strong>W, A, S, D=
+</strong> to move selected shapes around.=20
+          This makes interacting with your polygons not just functional, bu=
+t downright fun!
+        </p>
+
+        <p>
+          Behind the scenes, the project demonstrates key programming conce=
+pts like <em>encapsulation</em>,=20
+          <em>modular design</em>, and <em>event handling</em>. Each polygo=
+n is a small masterpiece of code, proving that even simple structures=20
+          can produce complex, visually compelling outcomes.
+        </p>
+
+        <p>
+          Overall, the <strong>Polygon Project</strong> is more than just c=
+ode=E2=80=94it=E2=80=99s an experiment in creativity, precision, and intera=
+ctive design.=20
+          It invites users to play, explore, and discover how programming p=
+rinciples transform into colorful, dynamic geometric art.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    =C2=A9 2025 Vadita Lathar. All rights reserved.
+  </footer>
+
+  <!-- Scripts -->
+ =20
+ =20
+
+
+</body></html>
+------MultipartBoundary--6BHvtiflwBsCwRdjIB9IROigkl5txzRma9WcmvQQu4----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap
+
+@charset "utf-8";
+
+@font-face { font-family: Poppins; font-style: normal; font-weight: 300; fo=
+nt-display: swap; src: url("https://fonts.gstatic.com/s/poppins/v24/pxiByp8=
+kv8JHgFVrLDz8Z11lFd2JQEl8qw.woff2") format("woff2"); unicode-range: U+900-9=
+7F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, =
+U+A8E0-A8FF, U+11B00-11B09; }
+
+@font-face { font-family: Poppins; font-style: normal; font-weight: 300; fo=
+nt-display: swap; src: url("https://fonts.gstatic.com/s/poppins/v24/pxiByp8=
+kv8JHgFVrLDz8Z1JlFd2JQEl8qw.woff2") format("woff2"); unicode-range: U+100-2=
+BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00=
+-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, =
+U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: Poppins; font-style: normal; font-weight: 300; fo=
+nt-display: swap; src: url("https://fonts.gstatic.com/s/poppins/v24/pxiByp8=
+kv8JHgFVrLDz8Z1xlFd2JQEk.woff2") format("woff2"); unicode-range: U+0-FF, U+=
+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000=
+-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: Poppins; font-style: normal; font-weight: 400; fo=
+nt-display: swap; src: url("https://fonts.gstatic.com/s/poppins/v24/pxiEyp8=
+kv8JHgFVrJJbecnFHGPezSQ.woff2") format("woff2"); unicode-range: U+900-97F, =
+U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, U+A8=
+E0-A8FF, U+11B00-11B09; }
+
+@font-face { font-family: Poppins; font-style: normal; font-weight: 400; fo=
+nt-display: swap; src: url("https://fonts.gstatic.com/s/poppins/v24/pxiEyp8=
+kv8JHgFVrJJnecnFHGPezSQ.woff2") format("woff2"); unicode-range: U+100-2BA, =
+U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DB=
+F, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C=
+60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: Poppins; font-style: normal; font-weight: 400; fo=
+nt-display: swap; src: url("https://fonts.gstatic.com/s/poppins/v24/pxiEyp8=
+kv8JHgFVrJJfecnFHGPc.woff2") format("woff2"); unicode-range: U+0-FF, U+131,=
+ U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206=
+F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: Poppins; font-style: normal; font-weight: 600; fo=
+nt-display: swap; src: url("https://fonts.gstatic.com/s/poppins/v24/pxiByp8=
+kv8JHgFVrLEj6Z11lFd2JQEl8qw.woff2") format("woff2"); unicode-range: U+900-9=
+7F, U+1CD0-1CF9, U+200C-200D, U+20A8, U+20B9, U+20F0, U+25CC, U+A830-A839, =
+U+A8E0-A8FF, U+11B00-11B09; }
+
+@font-face { font-family: Poppins; font-style: normal; font-weight: 600; fo=
+nt-display: swap; src: url("https://fonts.gstatic.com/s/poppins/v24/pxiByp8=
+kv8JHgFVrLEj6Z1JlFd2JQEl8qw.woff2") format("woff2"); unicode-range: U+100-2=
+BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00=
+-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, =
+U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: Poppins; font-style: normal; font-weight: 600; fo=
+nt-display: swap; src: url("https://fonts.gstatic.com/s/poppins/v24/pxiByp8=
+kv8JHgFVrLEj6Z1xlFd2JQEk.woff2") format("woff2"); unicode-range: U+0-FF, U+=
+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000=
+-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+------MultipartBoundary--6BHvtiflwBsCwRdjIB9IROigkl5txzRma9WcmvQQu4----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///Users/vaditalathar/Desktop/Portfolio/style.css?v=3
+
+@charset "utf-8";
+
+:root { --bg: #0d0d0d; --card-bg: #1a1a1a; --muted: #bfbfbf; --accent: #a3a=
+3ff; --text: #e0e0e0; --soft: rgba(255,255,255,0.02); }
+
+* { margin: 0px; padding: 0px; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body { font-family: Poppins, sans-serif; background-color: var(--bg); color=
+: var(--text); line-height: 1.6; }
+
+.navbar { position: fixed; width: 100%; top: 0px; left: 0px; background: va=
+r(--card-bg); padding: 1rem 0px; z-index: 50; text-align: center; box-shado=
+w: rgba(255, 255, 255, 0.02) 0px 1px 0px; }
+
+.navbar ul { list-style: none; display: flex; justify-content: center; gap:=
+ 2rem; }
+
+.navbar a { color: var(--muted); text-decoration: none; transition: color 0=
+.25s, border-bottom 0.25s; padding: 0.2rem 0.25rem; }
+
+.navbar a:hover, .navbar a.active { color: rgb(255, 255, 255); border-botto=
+m: 2px solid rgb(107, 107, 107); }
+
+.theme-toggle { position: fixed; right: 1rem; top: 0.9rem; z-index: 60; }
+
+.hero { position: relative; width: 100%; height: 100vh; display: flex; just=
+ify-content: center; align-items: center; flex-direction: column; text-alig=
+n: center; background: rgb(20, 20, 20); overflow: hidden; padding-top: 4.5r=
+em; }
+
+#particle-canvas { position: fixed; top: 0px; left: 0px; width: 100%; heigh=
+t: 100%; z-index: 0; pointer-events: none; }
+
+.hero-content { position: relative; z-index: 1; padding: 1rem; }
+
+.hero-photo { width: 180px; height: 180px; border-radius: 50%; object-fit: =
+cover; object-position: center 30%; border: 3px solid rgb(85, 85, 85); disp=
+lay: block; margin: 0px auto 1rem; }
+
+.hero h1 { font-size: 2rem; margin-top: 0.6rem; color: rgb(255, 255, 255); =
+}
+
+.hero .highlight { color: var(--accent); }
+
+.hero h2 { height: 2.5rem; margin-bottom: 15px; color: rgb(255, 255, 255); =
+text-align: center; white-space: nowrap; overflow: hidden; font-weight: 500=
+; font-size: 1.25rem; }
+
+.tagline { max-width: 600px; margin: 10px auto 0px; color: rgb(204, 204, 20=
+4); font-size: 1.1rem; line-height: 1.6; }
+
+.btn { display: inline-block; margin-top: 20px; padding: 10px 20px; backgro=
+und: rgb(51, 51, 51); color: rgb(255, 255, 255); border-radius: 5px; transi=
+tion: background 0.25s; text-decoration: none; font-weight: 600; }
+
+.btn:hover { background: rgb(85, 85, 85); }
+
+.project-page { position: relative; padding: 6rem 2rem 4rem; min-height: 10=
+0vh; color: var(--text); background: transparent; z-index: 1; }
+
+.project-container { display: flex; gap: 2rem; max-width: 1200px; margin: 0=
+px auto; padding: 0px 1.5rem; align-items: stretch; }
+
+.project-video { flex: 0 0 45%; max-width: 500px; height: auto; border-radi=
+us: 12px; box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px; background-color: rg=
+b(0, 0, 0); }
+
+.project-text-side { flex: 1 1 0%; display: flex; flex-direction: column; j=
+ustify-content: space-between; line-height: 1.8; font-size: 1rem; color: va=
+r(--text); }
+
+.project-text-side h2 { color: var(--accent, #a78bfa); font-size: 1.8rem; f=
+ont-weight: 600; margin-bottom: 1rem; }
+
+.project-text-side p { margin-bottom: 1rem; }
+
+.project-text-full { width: 100%; padding: 2rem 3rem; margin-top: 2rem; dis=
+play: flex; flex-direction: column; gap: 1.8rem; line-height: 2; font-size:=
+ 1.05rem; color: var(--text); text-align: justify; }
+
+.skills-icons { padding: 5rem 1rem; background-color: var(--card-bg); text-=
+align: center; }
+
+.skills-icons h2 { color: var(--accent); font-size: 2rem; margin-bottom: 3.=
+5rem; }
+
+.skill-category { margin-bottom: 4rem; }
+
+.skill-category h3 { color: var(--accent); font-size: 1.6rem; margin-bottom=
+: 2.5rem; letter-spacing: 0.5px; }
+
+.skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap=
+: 2rem; }
+
+.skill-card { width: 80px; height: 80px; background: rgb(42, 42, 42); borde=
+r-radius: 15px; display: flex; justify-content: center; align-items: center=
+; transition: transform 0.35s, box-shadow 0.35s, background 0.35s; cursor: =
+default; }
+
+.skill-card img { width: 50%; height: 50%; }
+
+.skill-card:hover { transform: translateY(-5px); box-shadow: rgba(163, 163,=
+ 255, 0.4) 0px 10px 25px, rgba(163, 163, 255, 0.2) 0px 0px 30px; background=
+: linear-gradient(135deg, rgb(46, 46, 255), rgb(163, 163, 255)); }
+
+#projects { padding: 5rem 1rem; background-color: rgb(18, 18, 18); text-ali=
+gn: center; }
+
+.projects-container { display: grid; grid-template-columns: repeat(auto-fit=
+, minmax(280px, 1fr)); gap: 2rem; place-items: start center; padding: 0px 1=
+rem; }
+
+.project-card { position: relative; display: flex; flex-direction: column; =
+width: 100%; max-width: 320px; border-radius: 12px; overflow: hidden; box-s=
+hadow: rgba(0, 0, 0, 0.4) 0px 4px 15px; background: var(--card-bg); transit=
+ion: transform 0.3s, box-shadow 0.3s; }
+
+.project-card img { width: 100%; height: 180px; object-fit: cover; transiti=
+on: filter 0.3s; }
+
+.project-content { padding: 1rem 1.25rem; display: flex; flex-direction: co=
+lumn; justify-content: space-between; gap: 0.6rem; }
+
+.project-content h3 { font-size: 1.15rem; color: var(--accent); }
+
+.project-content p { color: rgb(204, 204, 204); font-size: 0.95rem; line-he=
+ight: 1.4; flex-grow: 1; }
+
+.project-content .btn { width: fit-content; align-self: flex-start; backgro=
+und: var(--accent); color: rgb(13, 13, 13); padding: 8px 14px; border-radiu=
+s: 6px; text-decoration: none; font-weight: 600; transition: background 0.2=
+5s; }
+
+.project-content .btn:hover { background: rgb(255, 255, 255); color: var(--=
+accent); }
+
+.project-card:hover img { filter: brightness(60%); }
+
+.project-card:hover { transform: translateY(-6px); box-shadow: rgba(163, 16=
+3, 255, 0.4) 0px 10px 25px, rgba(163, 163, 255, 0.2) 0px 0px 30px; }
+
+.project-card.hackathon::before { content: "Hackathon"; position: absolute;=
+ top: 10px; left: 10px; background: var(--accent); color: rgb(13, 13, 13); =
+font-size: 0.75rem; padding: 3px 6px; border-radius: 4px; z-index: 3; font-=
+weight: 600; }
+
+.work { background-color: var(--card-bg); text-align: center; padding: 6rem=
+ 1rem; }
+
+.work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(=
+280px, 1fr)); gap: 2rem; place-items: start center; max-width: 1000px; marg=
+in: 0px auto; }
+
+.work-card { position: relative; width: 100%; max-width: 320px; border-radi=
+us: 12px; overflow: hidden; background: rgb(17, 17, 17); box-shadow: rgba(0=
+, 0, 0, 0.4) 0px 4px 15px; transition: transform 0.3s, box-shadow 0.3s; cur=
+sor: pointer; }
+
+.work-card img { width: 100%; height: 220px; object-fit: cover; display: bl=
+ock; border-radius: 12px 12px 0px 0px; filter: brightness(75%); transition:=
+ filter 0.3s; }
+
+.work-info { position: absolute; top: 50%; left: 50%; transform: translate(=
+-50%, -50%); color: rgb(255, 255, 255); z-index: 2; width: 90%; pointer-eve=
+nts: none; text-align: center; transition: opacity 0.25s; }
+
+.work-overlay { position: absolute; inset: 0px; background: rgba(0, 0, 0, 0=
+.82); color: rgb(255, 255, 255); opacity: 0; display: flex; flex-direction:=
+ column; justify-content: center; align-items: center; text-align: center; =
+padding: 1rem; transition: opacity 0.28s; z-index: 3; }
+
+.work-card:hover .work-overlay { opacity: 1; }
+
+.work-card:hover .work-info { opacity: 0; }
+
+.work-card:hover img { filter: brightness(60%); transform: scale(1.01); }
+
+.work-card:hover { transform: translateY(-6px); }
+
+.contact { padding: 4rem 1rem; background-color: rgb(15, 15, 15); text-alig=
+n: center; }
+
+footer { background-color: rgb(11, 11, 11); text-align: center; padding: 1r=
+em; color: rgb(153, 153, 153); font-size: 0.9rem; }
+
+@media (max-width: 900px) {
+  .project-container { flex-direction: column; }
+  .project-video, .project-text-side { flex: 1 1 100%; }
+  .project-text-side { justify-content: flex-start; }
+}
+
+#particles-js, #particle-canvas { position: absolute; top: 0px; left: 0px; =
+width: 100%; height: 100%; z-index: 0; }
+------MultipartBoundary--6BHvtiflwBsCwRdjIB9IROigkl5txzRma9WcmvQQu4------

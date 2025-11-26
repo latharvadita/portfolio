@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polygon Project - Vadita Lathar Portfolio</title>
+  <link rel="stylesheet" href="style.css?v=3">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Particle Background -->
+  <div id="particle-canvas"></div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+  <ul>
+    <li><a href="index.html" class="nav-link">Home</a></li>
+    <li><a href="about.html" class="nav-link active">About Me</a></li>
+    <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+    <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+    <li><a href="index.html#work" class="nav-link">Work</a></li>
+    <li><a href="resume.html" class="nav-link">Resume</a></li>
+    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+  </ul>
+</header>
+
+
+  <!-- Main Project Section -->
+  <main>
+    <section class="project-page">
+      <div class="project-container">
+        <!-- Video -->
+        <video class="project-video" controls>
+          <source src="videos/polygon.mov" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+
+        <!-- Text next to video -->
+        <div class="project-text-side">
+          <h2>Polygon Project</h2>
+          <p>
+            Imagine a canvas where shapes come alive—this is the <strong>Polygon Project</strong>. 
+            It turns basic programming into a colorful playground, blending <em>object-oriented design</em> with a dash of fun experimentation.
+          </p>
+
+          <p>
+            Two main classes—<strong>Vertex</strong> and <strong>Polygon</strong>—bring order to creative chaos.
+            Vertices store points, polygons assemble them into dynamic, eye-catching shapes, each with vibrant colors and playful transparency.
+          </p>
+
+          <p>
+            With a few clicks, you can build shapes from scratch. Left-click to place vertices, right-click to complete your polygon, and watch as your geometric creations spring to life on the screen.
+          </p>
+        </div>
+      </div>
+
+      <!-- Text below video -->
+      <div class="project-text-full">
+        <p>
+          The application also supports intuitive keyboard controls: press <strong>e</strong> to erase the most recent polygon, 
+          <strong>c</strong> to clear the canvas, or use <strong>W, A, S, D</strong> to move selected shapes around. 
+          This makes interacting with your polygons not just functional, but downright fun!
+        </p>
+
+        <p>
+          Behind the scenes, the project demonstrates key programming concepts like <em>encapsulation</em>, 
+          <em>modular design</em>, and <em>event handling</em>. Each polygon is a small masterpiece of code, proving that even simple structures 
+          can produce complex, visually compelling outcomes.
+        </p>
+
+        <p>
+          Overall, the <strong>Polygon Project</strong> is more than just code—it’s an experiment in creativity, precision, and interactive design. 
+          It invites users to play, explore, and discover how programming principles transform into colorful, dynamic geometric art.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Vadita Lathar. All rights reserved.
+  </footer>
+
+  <!-- Scripts -->
+  <script src="particles.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
