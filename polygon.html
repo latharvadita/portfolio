@@ -13,17 +13,30 @@
   <div id="particle-canvas"></div>
 
   <!-- Navigation Bar -->
-  <header class="navbar">
-  <ul>
-    <li><a href="index.html" class="nav-link">Home</a></li>
-    <li><a href="about.html" class="nav-link active">About Me</a></li>
-    <li><a href="index.html#skills" class="nav-link">Skills</a></li>
-    <li><a href="index.html#projects" class="nav-link">Projects</a></li>
-    <li><a href="index.html#work" class="nav-link">Work</a></li>
-    <li><a href="resume.html" class="nav-link">Resume</a></li>
-    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
-  </ul>
+ <header>
+  <nav class="navbar">
+    <div class="logo"></div>
+
+    <!-- Hamburger Menu -->
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Navigation Links -->
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="about.html" class="nav-link active">About Me</a></li>
+      <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+      <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+      <li><a href="index.html#work" class="nav-link">Work</a></li>
+      <li><a href="resume.html" class="nav-link">Resume</a></li>
+      <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
 </header>
+
 
 
   <!-- Main Project Section -->
@@ -39,6 +52,10 @@
         <!-- Text next to video -->
         <div class="project-text-side">
           <h2>Polygon Project</h2>
+          <br>
+          <br>
+          <br>
+          <br>
           <p>
             Imagine a canvas where shapes come alive—this is the <strong>Polygon Project</strong>. 
             It turns basic programming into a colorful playground, blending <em>object-oriented design</em> with a dash of fun experimentation.
@@ -82,8 +99,21 @@
     &copy; 2025 Vadita Lathar. All rights reserved.
   </footer>
 
-  <!-- Scripts -->
+    <!-- Scripts -->
   <script src="particles.js"></script>
   <script src="js/script.js"></script>
+
+  <!-- Hamburger JS -->
+  <script>
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  </script>
+</body>
+</html>
+
 </body>
 </html>

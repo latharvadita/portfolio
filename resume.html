@@ -9,16 +9,28 @@
 <body class="resume-page">
 
   <!-- Navbar / Header -->
-  <header class="navbar">
-  <ul>
-    <li><a href="index.html" class="nav-link">Home</a></li>
-    <li><a href="about.html" class="nav-link active">About Me</a></li>
-    <li><a href="index.html#skills" class="nav-link">Skills</a></li>
-    <li><a href="index.html#projects" class="nav-link">Projects</a></li>
-    <li><a href="index.html#work" class="nav-link">Work</a></li>
-    <li><a href="resume.html" class="nav-link">Resume</a></li>
-    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
-  </ul>
+ <header>
+  <nav class="navbar">
+    <div class="logo"></div>
+
+    <!-- Hamburger Menu -->
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Navigation Links -->
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="about.html" class="nav-link active">About Me</a></li>
+      <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+      <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+      <li><a href="index.html#work" class="nav-link">Work</a></li>
+      <li><a href="resume.html" class="nav-link">Resume</a></li>
+      <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
 </header>
 
 
@@ -34,6 +46,16 @@
       style="border: 1px solid #555; border-radius: 8px;">
     </iframe>
   </section>
+
+  <script>
+  const hamburger = document.querySelector(".hamburger");
+  const navLinks = document.querySelector(".nav-links");
+
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+</script>
+
 
 </body>
 </html>

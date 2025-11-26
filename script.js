@@ -1,98 +1,87 @@
-// === Typing Animation ===
-const titles = ["An Aspiring Software Engineer", "A Problem Solver", "A Creator", "An Innovator"];
-const typingElement = document.getElementById("typing");
+// script.js
+document.addEventListener("DOMContentLoaded", () => {
 
-let titleIndex = 0, charIndex = 0;
-const typingSpeed = 100, deletingSpeed = 50, pauseBetween = 1500;
+  // === Hamburger Menu Toggle ===
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.querySelector(".nav-links");
+  const navItems = document.querySelectorAll(".nav-link");
 
-function type() {
-  const currentTitle = titles[titleIndex];
+  if (hamburger && navMenu) {
+    // Toggle menu on click
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
 
-  if (charIndex < currentTitle.length) {
-    typingElement.textContent += currentTitle.charAt(charIndex);
-    charIndex++;
-    setTimeout(type, typingSpeed);
-  } else {
-    setTimeout(deleteText, pauseBetween);
+    // Close menu when a nav link is clicked
+    navItems.forEach(link => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+      });
+    });
   }
-}
 
-function deleteText() {
-  const currentTitle = titles[titleIndex];
+  // === Typing Animation ===
+  const typingElement = document.getElementById("typing");
+  if (typingElement) {
+    const titles = ["An Aspiring Software Engineer", "A Problem Solver", "A Creator", "An Innovator"];
+    let titleIndex = 0, charIndex = 0;
+    const typingSpeed = 100, deletingSpeed = 50, pauseBetween = 1500;
 
-  if (charIndex > 0) {
-    typingElement.textContent = currentTitle.substring(0, charIndex - 1);
-    charIndex--;
-    setTimeout(deleteText, deletingSpeed);
-  } else {
-    titleIndex = (titleIndex + 1) % titles.length;
-    setTimeout(type, 500);
-  }
-}
-
-type();
-
-
-// === Navbar Active Link Highlight ===
-const navLinkItems = document.querySelectorAll(".nav-link");
-
-window.addEventListener("scroll", () => {
-  let fromTop = window.scrollY;
-
-  navLinkItems.forEach(link => {
-    const section = document.querySelector(link.hash);
-    if (!section) return; // skip if section doesn't exist
-
-    if(section.offsetTop <= fromTop + 100 && section.offsetTop + section.offsetHeight > fromTop + 100){
-      link.classList.add("active");
-    } else {
-      link.classList.remove("active");
+    function type() {
+      const currentTitle = titles[titleIndex];
+      if (charIndex < currentTitle.length) {
+        typingElement.textContent += currentTitle.charAt(charIndex);
+        charIndex++;
+        setTimeout(type, typingSpeed);
+      } else {
+        setTimeout(deleteText, pauseBetween);
+      }
     }
-  });
-});
 
+    function deleteText() {
+      const currentTitle = titles[titleIndex];
+      if (charIndex > 0) {
+        typingElement.textContent = currentTitle.substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(deleteText, deletingSpeed);
+      } else {
+        titleIndex = (titleIndex + 1) % titles.length;
+        setTimeout(type, 500);
+      }
+    }
 
-// === Fade-in on Scroll ===
-const faders = document.querySelectorAll('.fade-in');
+    type();
+  }
 
-const appearOptions = { threshold: 0.2 };
+  // === Fade-in on Scroll ===
+  const faders = document.querySelectorAll('.fade-in');
+  if (faders.length > 0) {
+    const appearOptions = { threshold: 0.2 };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
 
-const appearOnScroll = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if(!entry.isIntersecting) return;
-    entry.target.classList.add('show');
-    observer.unobserve(entry.target);
-  });
-}, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  }
 
-faders.forEach(fader => appearOnScroll.observe(fader));
+  // === Navbar Active Link Highlight on Scroll ===
+  const navLinks = document.querySelectorAll(".nav-link");
+  if (navLinks.length > 0) {
+    window.addEventListener("scroll", () => {
+      const fromTop = window.scrollY;
+      navLinks.forEach(link => {
+        const section = document.querySelector(link.hash);
+        if (section && section.offsetTop <= fromTop + 100 && section.offsetTop + section.offsetHeight > fromTop + 100) {
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
+        }
+      });
+    });
+  }
 
-
-// === Animate Skill Tooltips ===
-const tooltip = document.getElementById('skill-tooltip');
-const skills = document.querySelectorAll('.skill-circle');
-
-skills.forEach(skill => {
-  skill.addEventListener('mouseenter', e => {
-    tooltip.textContent = skill.dataset.info;
-    tooltip.style.opacity = 1;
-  });
-
-  skill.addEventListener('mousemove', e => {
-    tooltip.style.left = e.pageX + 15 + 'px';
-    tooltip.style.top = e.pageY + 15 + 'px';
-  });
-
-  skill.addEventListener('mouseleave', e => {
-    tooltip.style.opacity = 0;
-  });
-});
-
-
-// === Hamburger Menu ===
-const hamburger = document.querySelector(".hamburger");
-const navLinksMenu = document.querySelector(".nav-links");
-
-hamburger.addEventListener("click", () => {
-  navLinksMenu.classList.toggle("active");
 });
