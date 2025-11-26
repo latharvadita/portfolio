@@ -484,6 +484,19 @@ body.about-page {
   }
 }
 
+/* === Responsive Navbar for Mobile === */
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    gap: 1rem;    
+    padding: 0.5rem 0;
+  }
+
+  .navbar a {
+    padding: 0.5rem 1rem;
+  }
+}
+
 
 /* === Particle Canvas Layer === */
 #particles-js, #particle-canvas {
