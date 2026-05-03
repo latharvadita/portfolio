@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vadita Lathar | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #060606;
+  --text: #f0f0f0;
+  --muted: #555;
+  --muted2: #888;
+  --border: rgba(255,255,255,0.07);
+  --border-bright: rgba(255,255,255,0.18);
+  --glass: rgba(255,255,255,0.03);
+  --glass-hover: rgba(255,255,255,0.06);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  line-height:1.65;
+  overflow-x:hidden;
+}
+
+body::after{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:9990;
+}
+
+nav{
+  position:fixed;top:24px;left:50%;transform:translateX(-50%);
+  z-index:1000;display:flex;align-items:center;gap:4px;
+  padding:8px 12px;
+  background:rgba(8,8,8,0.8);
+  backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);
+  border:1px solid var(--border);border-radius:100px;
+}
+nav a{
+  color:var(--muted);text-decoration:none;font-size:11.5px;
+  letter-spacing:0.06em;font-weight:500;
+  padding:6px 16px;border-radius:100px;
+  transition:all .2s;
+}
+nav a:hover{color:#fff;background:rgba(255,255,255,0.06);}
+
+/* HERO */
+#home{
+  min-height:100vh;
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  align-items:center;padding:140px 8% 80px;
+  position:relative;
+  gap:40px;
+}
+
+#home::before{
+  content:'01';
+  position:absolute;right:-2%;bottom:-5%;
+  font-family:'DM Serif Display',serif;
+  font-size:30vw;line-height:1;
+  color:rgba(255,255,255,0.018);
+  pointer-events:none;user-select:none;
+  letter-spacing:-0.05em;
+}
+
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:10px;letter-spacing:0.25em;text-transform:uppercase;
+  color:rgba(255,255,255,0.5);margin-bottom:32px;
+}
+.hero-eyebrow span{display:inline-block;width:28px;height:1px;background:rgba(255,255,255,0.4);}
+.hero-eyebrow strong{
+  color:#fff;font-weight:500;
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:100px;padding:3px 12px;
+  letter-spacing:0.2em;font-size:9px;
+}
+
+h1.hero-name{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(3.2rem,5.5vw,5.5rem);
+  line-height:0.9;letter-spacing:-0.025em;
+  color:#fff;margin-bottom:10px;
+}
+h1.hero-name em{font-style:italic;color:rgba(255,255,255,0.55);}
+
+.hero-subtitle{
+  font-size:clamp(1.1rem,1.8vw,1.4rem);
+  color:var(--muted);font-weight:300;
+  letter-spacing:0.01em;margin-bottom:28px;
+}
+
+.hero-quote{
+  font-size:0.82rem;color:var(--muted);
+  font-style:italic;max-width:360px;
+  border-left:1px solid rgba(255,255,255,0.12);
+  padding-left:18px;line-height:1.8;
+  margin-bottom:36px;
+}
+
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{
+  padding:12px 30px;border-radius:100px;
+  text-decoration:none;font-size:12.5px;font-weight:500;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:all .25s;letter-spacing:0.03em;
+}
+.btn-primary{background:#fff;color:#000;}
+.btn-primary:hover{background:rgba(255,255,255,0.88);transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,255,255,0.15);}
+.btn-ghost{
+  border:1px solid rgba(255,255,255,0.35);color:#e0e0e0;
+  backdrop-filter:blur(10px);background:rgba(255,255,255,0.05);
+}
+.btn-ghost:hover{border-color:#fff;color:#fff;background:rgba(255,255,255,0.1);transform:translateY(-2px);}
+
+/* Lanyard */
+#lanyard-wrap{
+  position:relative;
+  height:clamp(560px, 65vh, 680px);
+  min-height:560px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:visible;
+  clip-path:inset(0 0 0 0);
+}
+#lanyard-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:default;}
+
+/* Scroll indicator */
+.scroll-hint{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  color:rgba(255,255,255,0.25);font-size:9px;letter-spacing:0.25em;text-transform:uppercase;
+  animation:scrollFade 3s ease infinite;
+  pointer-events:none;
+}
+.scroll-hint-line{
+  width:1px;height:40px;
+  background:linear-gradient(to bottom,rgba(255,255,255,0.3),transparent);
+  animation:scrollLine 3s ease infinite;
+}
+@keyframes scrollFade{0%,100%{opacity:0.3;}50%{opacity:0.8;}}
+@keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform:scaleY(1);transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+
+/* Section dividers */
+section:not(#home){
+  border-top:1px solid var(--border);
+}
+
+/* Contact button improvements */
+.btn-contact.ghost{border:1px solid rgba(255,255,255,0.35);color:#e0e0e0;backdrop-filter:blur(10px);background:rgba(255,255,255,0.05);}
+.btn-contact.ghost:hover{border-color:#fff;color:#fff;background:rgba(255,255,255,0.1);transform:translateY(-2px);}
+.btn-contact.primary:hover{box-shadow:0 8px 30px rgba(255,255,255,0.15);}
+
+/* SHARED SECTION */
+section{padding:130px 8% 110px;position:relative;}
+
+.section-label{
+  font-size:9px;letter-spacing:0.35em;text-transform:uppercase;
+  color:var(--muted2);margin-bottom:16px;
+  display:flex;align-items:center;gap:12px;
+}
+.section-label::before{content:'';width:6px;height:6px;border-radius:50%;background:#fff;flex-shrink:0;}
+
+.section-heading{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(2.8rem,4.5vw,4rem);
+  letter-spacing:-0.03em;color:#fff;
+  margin-bottom:70px;line-height:0.95;
+}
+
+/* CENTERED headings for projects/skills/experience/contact */
+.section-centered{text-align:center;}
+.section-centered .section-label{justify-content:center;}
+.section-centered .section-heading{margin-left:auto;margin-right:auto;}
+
+/* PROJECTS */
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:1px;
+  border:1px solid var(--border);border-radius:24px;overflow:hidden;
+}
+.project-card:nth-child(1){ grid-column:span 3; }
+.project-card:nth-child(2){ grid-column:span 3; }
+.project-card:nth-child(3){ grid-column:span 2; }
+.project-card:nth-child(4){ grid-column:span 2; }
+.project-card:nth-child(5){ grid-column:span 2; }
+
+.project-card{
+  background:var(--glass);
+  padding:40px 36px;
+  transition:background .4s,transform .4s cubic-bezier(0.23,1,0.32,1);
+  position:relative;
+  border-right:1px solid var(--border);
+}
+.project-card:last-child{border-right:none;}
+.project-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.04) 0%,transparent 60%);
+  opacity:0;transition:.4s;
+}
+.project-card:hover{background:var(--glass-hover);transform:translateY(-2px);}
+.project-card:hover::before{opacity:1;}
+
+/* Linked project cards */
+a.project-card{text-decoration:none;display:block;color:inherit;}
+.card-link-hint{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-top:20px;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;
+  color:rgba(255,255,255,0.3);transition:.2s;
+}
+.card-link-hint::after{content:'↗';font-size:12px;}
+.project-card:hover .card-link-hint{color:rgba(255,255,255,0.75);}
+
+.card-num{font-size:9px;letter-spacing:0.2em;color:var(--muted);text-transform:uppercase;margin-bottom:28px;}
+.card-title{font-family:'DM Serif Display',serif;font-size:1.55rem;color:#fff;margin-bottom:14px;line-height:1.1;}
+.card-body{font-size:0.84rem;color:var(--muted2);margin-bottom:28px;line-height:1.75;}
+.card-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.card-tag{
+  font-size:9.5px;padding:4px 12px;
+  border:1px solid var(--border);border-radius:100px;
+  color:var(--muted);letter-spacing:0.05em;transition:.2s;
+}
+.project-card:hover .card-tag{border-color:rgba(255,255,255,0.2);color:#aaa;}
+
+/* SKILLS */
+.skills-simple{
+  display:flex;flex-wrap:wrap;gap:10px;
+  justify-content:center;max-width:780px;margin:0 auto;
+}
+.skill-pill{
+  font-size:12px;font-weight:500;
+  padding:9px 20px;
+  border:1px solid var(--border);border-radius:100px;
+  color:var(--muted2);background:var(--glass);
+  transition:all .22s;
+}
+.skill-pill:hover{border-color:rgba(255,255,255,0.28);color:#fff;background:rgba(255,255,255,0.06);}
+
+/* EXPERIENCE */
+#experience{padding-bottom:140px;}
+.exp-timeline{position:relative;padding-left:0;}
+.exp-item{
+  display:grid;grid-template-columns:200px 1px 1fr;
+  gap:0 40px;margin-bottom:0;position:relative;
+}
+.exp-line{width:1px;background:var(--border);position:relative;}
+.exp-line::before{
+  content:'';position:absolute;top:8px;left:50%;transform:translateX(-50%);
+  width:7px;height:7px;border-radius:50%;background:#fff;
+  box-shadow:0 0 12px rgba(255,255,255,0.4);
+}
+.exp-left{padding:4px 0 60px;text-align:right;}
+.exp-date{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px;}
+.exp-company{font-family:'DM Serif Display',serif;font-size:0.95rem;color:#777;font-style:italic;}
+.exp-right{padding:0 0 60px 0;}
+.exp-role{font-size:1.15rem;font-weight:600;color:#eee;margin-bottom:10px;}
+.exp-body{font-size:0.85rem;color:var(--muted2);line-height:1.8;max-width:480px;}
+.exp-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px;}
+.exp-tag{font-size:9px;padding:3px 10px;border:1px solid var(--border);border-radius:100px;color:var(--muted);letter-spacing:0.06em;}
+#experience::before{
+  content:'';position:absolute;right:-10%;top:20%;width:500px;height:500px;
+  background:radial-gradient(circle,rgba(255,255,255,0.025) 0%,transparent 70%);
+  pointer-events:none;
+}
+
+/* CONTACT */
+#contact{text-align:center;padding:160px 8%;position:relative;overflow:hidden;}
+#contact::before{
+  content:'HELLO';
+  position:absolute;left:50%;top:50%;
+  transform:translate(-50%,-50%);
+  font-family:'DM Serif Display',serif;
+  font-size:30vw;color:rgba(255,255,255,0.015);
+  pointer-events:none;user-select:none;
+  white-space:nowrap;line-height:1;
+}
+.contact-inner{position:relative;z-index:2;}
+.contact-tagline{
+  font-size:clamp(2.5rem,5vw,4.5rem);
+  font-family:'DM Serif Display',serif;
+  color:#fff;margin-bottom:16px;
+  letter-spacing:-0.03em;line-height:1;
+}
+.contact-tagline em{font-style:italic;color:rgba(255,255,255,0.45);}
+.contact-sub{font-size:0.9rem;color:var(--muted);margin-bottom:48px;}
+.btn-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-contact{padding:14px 36px;border-radius:100px;text-decoration:none;font-size:13px;font-weight:500;display:inline-flex;align-items:center;gap:8px;transition:all .25s;letter-spacing:0.03em;}
+.btn-contact.primary{background:#fff;color:#000;}
+.btn-contact.primary:hover{background:rgba(255,255,255,0.88);transform:translateY(-2px);}
+.btn-contact.ghost{border:1px solid var(--border-bright);color:#ccc;backdrop-filter:blur(10px);background:rgba(255,255,255,0.03);}
+.btn-contact.ghost:hover{border-color:#fff;color:#fff;transform:translateY(-2px);}
+
+footer{
+  padding:36px 8%;
+  border-top:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;
+  color:#2a2a2a;font-size:11px;letter-spacing:0.05em;
+}
+
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+/* ── TABLET (max 1024px) ── */
+@media(max-width:1024px){
+  #home{padding:100px 6% 80px;gap:24px;}
+  section{padding:100px 6% 90px;}
+  #contact{padding:120px 6%;}
+  footer{padding:32px 6%;}
+  nav{top:16px;}
+
+  h1.hero-name{font-size:clamp(3rem,6vw,5rem);}
+  .section-heading{font-size:clamp(2.2rem,4vw,3.2rem);}
+
+  .projects-grid{grid-template-columns:repeat(4,1fr);}
+  .project-card:nth-child(1){grid-column:span 2;}
+  .project-card:nth-child(2){grid-column:span 2;}
+  .project-card:nth-child(3){grid-column:span 2;}
+  .project-card:nth-child(4){grid-column:span 2;}
+  .project-card:nth-child(5){grid-column:span 4;}
+
+  .exp-item{grid-template-columns:160px 1px 1fr;gap:0 28px;}
+}
+
+/* ── MOBILE / SMALL TABLET (max 900px) ── */
+@media(max-width:900px){
+  /* Nav */
+  nav{
+    top:12px;
+    padding:6px 8px;
+    gap:2px;
+  }
+  nav a{
+    font-size:10.5px;
+    padding:5px 11px;
+  }
+
+  /* Hero: stack vertically, card on top */
+  #home{
+    grid-template-columns:1fr;
+    grid-template-rows:auto auto;
+    padding:80px 6% 60px;
+    min-height:100vh;
+    height:auto;
+    gap:24px;
+  }
+
+  /* Show lanyard first on mobile */
+  #lanyard-wrap{
+    order:-1;
+    height:520px;
+    min-height:520px;
+    width:100%;
+  }
+  .scroll-hint{ display:none; }
+
+  .hero-left{
+    text-align:center;
+    align-items:center;
+  }
+  .hero-eyebrow{justify-content:center;}
+  .hero-quote{text-align:left;margin-left:auto;margin-right:auto;}
+  .hero-actions{justify-content:center;}
+
+  /* Sections */
+  section{padding:80px 6% 70px;}
+  #contact{padding:100px 6%;}
+  footer{padding:28px 6%;flex-direction:column;gap:10px;text-align:center;}
+
+  /* Projects: single column */
+  .projects-grid{
+    grid-template-columns:1fr;
+    border-radius:16px;
+  }
+  .project-card:nth-child(n){grid-column:span 1;}
+  .project-card{border-right:none;border-bottom:1px solid var(--border);}
+  .project-card:last-child{border-bottom:none;}
+
+  /* Experience */
+  .exp-item{grid-template-columns:1fr;gap:0;}
+  .exp-left{text-align:left;padding-bottom:10px;}
+  .exp-line{display:none;}
+
+  /* Skills */
+  .skills-simple{max-width:100%;}
+
+  /* Section headings */
+  .section-heading{margin-bottom:48px;}
+}
+
+/* ── SMALL PHONES (max 480px) ── */
+@media(max-width:480px){
+  nav{
+    left:50%;
+    transform:translateX(-50%);
+    width:calc(100% - 32px);
+    justify-content:space-around;
+  }
+  nav a{
+    padding:5px 8px;
+    font-size:10px;
+    letter-spacing:0.03em;
+  }
+
+  #home{padding:80px 5% 50px;}
+  section{padding:70px 5% 60px;}
+  #contact{padding:80px 5%;}
+  footer{padding:24px 5%;}
+
+  h1.hero-name{font-size:clamp(2.8rem,11vw,4rem);}
+  .hero-subtitle{font-size:1rem;}
+  .hero-quote{font-size:0.78rem;}
+
+  #lanyard-wrap{height:480px;min-height:480px;}
+
+  .btn{padding:11px 24px;font-size:12px;}
+  .contact-tagline{font-size:clamp(2rem,8vw,3rem);}
+
+  .project-card{padding:28px 22px;}
+  .card-title{font-size:1.3rem;}
+
+  .exp-role{font-size:1rem;}
+  .btn-contact{padding:12px 26px;font-size:12px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#experience">Experience</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-left">
+    <div class="hero-eyebrow"><span></span><strong>Aspiring Software Engineer</strong></div>
+    <h1 class="hero-name">Vadita<br><em>Lathar</em></h1>
+    <p class="hero-subtitle">Miami University</p>
+    <p class="hero-quote">"Turning abstract logic into interactive reality, one neural layer at a time."</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary">Get In Touch</a>
+      <a href="LatharVaditaResume.pdf" 
+   class="btn-contact ghost" 
+   id="resume-dl2" 
+   download>
+  Download Resume ↓
+</a>
+    </div>
+  </div>
+  <div id="lanyard-wrap">
+    <canvas id="lanyard-canvas"></canvas>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section-centered">
+  <div class="section-label">Portfolio</div>
+  <h2 class="section-heading">My<br><em style="font-style:italic;color:rgba(255,255,255,.45)">Projects</em></h2>
+  <div class="projects-grid">
+    <a class="project-card reveal" href="taskmaster.html" target="_blank" rel="noopener">
+      <div class="card-num">01</div>
+      <h3 class="card-title">TaskMaster</h3>
+      <p class="card-body">A mobile task management app designed to reduce cognitive load. Evaluated with a Think-Aloud Protocol across 6 participants — then iterated based on real feedback.</p>
+      <div class="card-tags"><span class="card-tag">Figma</span><span class="card-tag">UI/UX</span><span class="card-tag">Prototyping</span><span class="card-tag">User Research</span></div>
+      <div class="card-link-hint">View Project</div>
+    </a>
+    <div class="project-card reveal">
+      <div class="card-num">02</div>
+      <h3 class="card-title">Escape Room</h3>
+      <p class="card-body">A 5-room puzzle game built with modular Java architecture and OOP principles. Clean state management and zero memory leaks across nested game states.</p>
+      <div class="card-tags"><span class="card-tag">Java</span><span class="card-tag">OOP</span><span class="card-tag">Game Design</span></div>
+    </div>
+    <a class="project-card reveal" href="https://devpost.com/software/book-portal" target="_blank" rel="noopener">
+      <div class="card-num">03</div>
+      <h3 class="card-title">Book Portal</h3>
+      <p class="card-body">A hackathon-winning platform that creates a digital community for sharing and discovering books. Connects rural students with textbook donations through empathetic, research-driven design.</p>
+      <div class="card-tags"><span class="card-tag">Hackathon</span><span class="card-tag">Research</span><span class="card-tag">Prototyping</span><span class="card-tag">Impact</span></div>
+      <div class="card-link-hint">View on Devpost</div>
+    </a>
+    <a class="project-card reveal" href="https://devpost.com/software/crop-connection" target="_blank" rel="noopener">
+      <div class="card-num">04</div>
+      <h3 class="card-title">Crop Connection</h3>
+      <p class="card-body">Hackathon-built web app connecting farmers directly to buyers, promoting transparency and sustainable agriculture. Built with Python and deep learning for crop identification.</p>
+      <div class="card-tags"><span class="card-tag">Hackathon</span><span class="card-tag">Python</span><span class="card-tag">Deep Learning</span><span class="card-tag">CNN</span></div>
+      <div class="card-link-hint">View on Devpost</div>
+    </a>
+    <a class="project-card reveal" href="polygon.html" target="_blank" rel="noopener">
+      <div class="card-num">05</div>
+      <h3 class="card-title">Polygon Project</h3>
+      <p class="card-body">An interactive geometry canvas where shapes come alive. Left-click to place vertices, right-click to complete a polygon — each with vibrant colors and playful transparency. Built with OOP in Processing/Java.</p>
+      <div class="card-tags"><span class="card-tag">Java</span><span class="card-tag">Processing</span><span class="card-tag">OOP</span><span class="card-tag">Interactive</span></div>
+      <div class="card-link-hint">View Project</div>
+    </a>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section-centered">
+  <div class="section-label">Toolkit</div>
+  <h2 class="section-heading">Skills &amp;<br><em style="font-style:italic;color:rgba(255,255,255,.45)">Expertise</em></h2>
+  <div class="skills-simple reveal">
+    <span class="skill-pill">Java</span>
+    <span class="skill-pill">Python</span>
+    <span class="skill-pill">C++</span>
+    <span class="skill-pill">SQL</span>
+    <span class="skill-pill">Figma</span>
+    <span class="skill-pill">Deep Learning</span>
+    <span class="skill-pill">Git</span>
+    <span class="skill-pill">UX Design</span>
+    <span class="skill-pill">OOP</span>
+    <span class="skill-pill">Agile</span>
+    <span class="skill-pill">Prototyping</span>
+    <span class="skill-pill">UI Systems</span>
+    <span class="skill-pill">Data Structures</span>
+    <span class="skill-pill">REST APIs</span>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section-centered">
+  <div class="section-label">Journey</div>
+  <h2 class="section-heading">Experience</h2>
+  <div class="exp-timeline" style="max-width:780px;margin:0 auto;text-align:left;">
+    <div class="exp-item reveal">
+      <div class="exp-left">
+        <span class="exp-date">2025 – Present</span>
+        <span class="exp-company">Miami University</span>
+      </div>
+      <div class="exp-line"></div>
+      <div class="exp-right">
+        <div class="exp-role">Student Specialist — Operations Team</div>
+        <div class="exp-body">Managing technical setups and troubleshooting AV systems for high-profile university events.</div>
+        <div class="exp-tags">
+          <span class="exp-tag">AV Systems</span>
+          <span class="exp-tag">Technical Support</span>
+          <span class="exp-tag">Live Events</span>
+        </div>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-left">
+        <span class="exp-date">Aug 2026</span>
+        <span class="exp-company">Miami University</span>
+      </div>
+      <div class="exp-line"></div>
+      <div class="exp-right">
+        <div class="exp-role">International Peer and Orientation Leader</div>
+        <div class="exp-body">Guided 100+ international students through academic and cultural transition, serving as a key resource for campus life, policies, and support services.</div>
+        <div class="exp-tags">
+          <span class="exp-tag">Figma</span>
+          <span class="exp-tag">Team Lead</span>
+          <span class="exp-tag">Award Winner</span>
+        </div>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-left">
+        <span class="exp-date">Jan 2025 – May 2025</span>
+        <span class="exp-company">Miami University</span>
+      </div>
+      <div class="exp-line"></div>
+      <div class="exp-right">
+        <div class="exp-role">Teaching Assistant — Python</div>
+        <div class="exp-body">Mentored students in problem-solving and debugging logic in weekly lab sessions, and developed supplementary learning materials.</div>
+        <div class="exp-tags">
+          <span class="exp-tag">Python</span>
+          <span class="exp-tag">Mentoring</span>
+          <span class="exp-tag">Curriculum</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-label" style="justify-content:center;margin-bottom:28px;">Connect</div>
+    <h2 class="contact-tagline">Let's build<br><em>something</em> great.</h2>
+    <p class="contact-sub">Open to internships, collaborations, and interesting problems.</p>
+    <div class="btn-row">
+      <a href="mailto:latharvadita5@gmail.com" class="btn-contact primary">Email Me</a>
+      <a href="https://linkedin.com/in/latharvadita" target="_blank" class="btn-contact ghost">LinkedIn ↗</a>
+      <a href="LatharVaditaResume.pdf" 
+   class="btn-contact ghost" 
+   id="resume-dl2" 
+   download>
+  Resume ↓
+</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Vadita Lathar</span>
+  <span>Built with curiosity &amp; code.</span>
+</footer>
+
+<script>
+/* SCROLL REVEAL */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const delay = parseInt(e.target.dataset.delay || 0);
+      setTimeout(() => e.target.classList.add('visible'), delay);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+/* LANYARD PHYSICS & CARD RENDERING */
+/* LANYARD PHYSICS & CARD RENDERING */
+(function() {
+  const canvas = document.getElementById('lanyard-canvas');
+  const ctx = canvas.getContext('2d');
+  const wrap = document.getElementById('lanyard-wrap');
+
+  // 1. ADD YOUR PHOTO URL HERE
+  const cardProfileImg = new Image();
+  cardProfileImg.src = 'images/lathar.jpg'; 
+
+  function resize() {
+    canvas.width = wrap.offsetWidth;
+    canvas.height = wrap.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', () => { resize(); init(); });
+
+  const CW = 240, CH = 340;
+  const SEG = 18, ROPE_LEN = 140, ITERS = 24;
+  const GRAV = 0.28, DAMP = 0.94;
+
+  let pts = [], anchorX, anchorY;
+  let card = { x: 0, y: 0, vx: 0, vy: 0, angle: 0, av: 0 };
+  let mouse = { x: -9999, y: -9999, active: false };
+
+  function init() {
+    anchorX = canvas.width * 0.5;
+    anchorY = 20; // visible ceiling anchor, not 0
+    const segLen = ROPE_LEN / SEG;
+    pts = [];
+    for (let i = 0; i <= SEG; i++) {
+      pts.push({ x: anchorX, y: anchorY + i * segLen, ox: anchorX, oy: anchorY + i * segLen, pinned: i === 0 });
+    }
+    card.x = anchorX;
+    card.y = anchorY + ROPE_LEN + CH * 0.45;
+    card.vx = 0; card.vy = 0; card.angle = 0; card.av = 0;
+  }
+  init();
+
+  function simulate() {
+    const segLen = ROPE_LEN / SEG;
+    if (mouse.active) {
+      const dx = card.x - mouse.x;
+      const dy = card.y - mouse.y;
+      const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+      if (dist < 300) {
+        const t = 1 - (dist / 300);
+        const push = t * t * 4.5;
+        card.vx += (dx / dist) * push;
+        card.vy += (dy / dist) * push * 0.5;
+      }
+    } else {
+      // Stronger spring back to resting position
+      const restX = anchorX;
+      const restY = anchorY + ROPE_LEN + CH * 0.45;
+      card.vx += (restX - card.x) * 0.05;
+      card.vy += (restY - card.y) * 0.05;
+      card.angle += (0 - card.angle) * 0.08;
+      card.av *= 0.75;
+    }
+    for (let p of pts) {
+      if (p.pinned) continue;
+      const vx = (p.x - p.ox) * DAMP;
+      const vy = (p.y - p.oy) * DAMP;
+      p.ox = p.x; p.oy = p.y;
+      p.x += vx; p.y += vy + GRAV;
+    }
+
+    for (let k = 0; k < ITERS; k++) {
+      for (let i = 0; i < pts.length - 1; i++) {
+        const a = pts[i], b = pts[i + 1];
+        const dx = b.x - a.x, dy = b.y - a.y;
+        const d = Math.sqrt(dx * dx + dy * dy) || 0.001;
+        const diff = (d - segLen) / d * 0.5;
+        if (!a.pinned) { a.x += dx * diff; a.y += dy * diff; }
+        if (!b.pinned) { b.x -= dx * diff; b.y -= dy * diff; }
+      }
+      pts[0].x = anchorX; pts[0].y = anchorY;
+    }
+
+    card.vy += GRAV;
+    card.vx *= 0.95; card.vy *= 0.95;
+    card.x += card.vx; card.y += card.vy;
+    const last = pts[pts.length - 1];
+    const topX = card.x, topY = card.y - CH * 0.5;
+    card.vx += (last.x - topX) * 0.14;
+    card.vy += (last.y - topY) * 0.14;
+    last.x += (topX - last.x) * 0.08; last.y += (topY - last.y) * 0.08;
+    card.av += (card.vx * 0.004 - card.av) * 0.10;
+    card.av *= 0.78;
+    card.angle += card.av;
+    // Clamp rotation to ±25 degrees
+    const MAX_ANGLE = Math.PI / 7.2;
+    if (card.angle > MAX_ANGLE)  { card.angle = MAX_ANGLE;  card.av *= -0.3; }
+    if (card.angle < -MAX_ANGLE) { card.angle = -MAX_ANGLE; card.av *= -0.3; }
+  }
+
+  function roundRect(x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y); ctx.lineTo(x + w - r, y);
+    ctx.arcTo(x + w, y, x + w, y + r, r); ctx.lineTo(x + w, y + h - r);
+    ctx.arcTo(x + w, y + h, x + w - r, y + h, r); ctx.lineTo(x + r, y + h);
+    ctx.arcTo(x, y + h, x, y + h - r, r); ctx.lineTo(x, y + r);
+    ctx.arcTo(x, y, x + r, y, r); ctx.closePath();
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    simulate();
+
+    // Ceiling hook
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255,255,255,0.35)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(anchorX, 0);
+    ctx.lineTo(anchorX, anchorY);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(anchorX, anchorY, 4, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(255,255,255,0.6)';
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.restore();
+
+    ctx.beginPath();
+    ctx.moveTo(pts[0].x, pts[0].y);
+    for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
+    ctx.strokeStyle = 'rgba(255,255,255,0.2)'; ctx.lineWidth = 2; ctx.stroke();
+
+    ctx.save();
+    ctx.translate(card.x, card.y);
+    ctx.rotate(card.angle);
+
+    ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 40; ctx.shadowOffsetY = 15;
+    roundRect(-CW / 2, -CH / 2, CW, CH, 22);
+    ctx.fillStyle = 'rgba(20,20,20,0.9)'; ctx.fill();
+    ctx.shadowBlur = 0;
+    ctx.strokeStyle = 'rgba(255,255,255,0.15)'; ctx.lineWidth = 1; ctx.stroke();
+
+    /* --- PHOTO LOGIC --- */
+    const pM = 15, pW = CW - (pM * 2), pH = CH * 0.55, pX = -CW / 2 + pM, pY = -CH / 2 + 40;
+    ctx.save();
+    roundRect(pX, pY, pW, pH, 15);
+    ctx.clip();
+    
+    if (cardProfileImg.complete && cardProfileImg.naturalWidth !== 0) {
+      const imgA = cardProfileImg.width / cardProfileImg.height;
+      const boxA = pW / pH;
+      let dW, dH, oX, oY;
+      if (imgA > boxA) { dH = pH; dW = pH * imgA; oX = pX + (pW - dW) / 2; oY = pY; }
+      else { dW = pW; dH = pW / imgA; oX = pX; oY = pY + (pH - dH) / 2; }
+      ctx.drawImage(cardProfileImg, oX, oY, dW, dH);
+    } else {
+      const grad = ctx.createLinearGradient(pX, pY, pX + pW, pY + pH);
+      grad.addColorStop(0, '#1a1a1a'); grad.addColorStop(1, '#2a2a2a');
+      ctx.fillStyle = grad; ctx.fillRect(pX, pY, pW, pH);
+      ctx.fillStyle = 'rgba(255,255,255,0.05)';
+      ctx.beginPath(); ctx.arc(0, pY + pH / 2 - 10, 30, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(0, pY + pH + 10, 55, Math.PI, 0); ctx.fill();
+    }
+    ctx.restore();
+
+    ctx.textAlign = 'left'; ctx.fillStyle = '#fff'; ctx.font = '600 18px DM Sans';
+    ctx.fillText('VL | @MU', -CW / 2 + 20, pY + pH + 35);
+
+    function drawBox(txt, x, y) {
+      ctx.font = '500 10px DM Sans';
+      const tw = ctx.measureText(txt).width, pad = 8;
+      roundRect(x, y, tw + (pad * 2), 22, 6);
+      ctx.fillStyle = 'rgba(255,255,255,0.07)'; ctx.fill();
+      ctx.strokeStyle = 'rgba(255,255,255,0.1)'; ctx.stroke();
+      ctx.fillStyle = 'rgba(255,255,255,0.6)';
+      ctx.fillText(txt, x + pad, y + 15);
+      return tw + (pad * 2) + 8;
+    }
+
+    let curX = -CW / 2 + 20;
+    let bY = pY + pH + 50;
+    curX += drawBox('SWE', curX, bY);
+    drawBox('Deep Learning & AI', curX, bY);
+
+    ctx.beginPath(); ctx.arc(0, -CH / 2 + 20, 6, 0, Math.PI * 2);
+    ctx.fillStyle = '#000'; ctx.fill();
+    ctx.strokeStyle = 'rgba(255,255,255,0.2)'; ctx.stroke();
+
+    ctx.restore();
+    requestAnimationFrame(draw);
+  }
+  draw();
+
+  // Mouse is only "active" while cursor is inside the lanyard wrap
+  wrap.addEventListener('mousemove', e => {
+    const r = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - r.left;
+    mouse.y = e.clientY - r.top;
+    mouse.active = true;
+  });
+  wrap.addEventListener('mouseleave', () => {
+    mouse.active = false;
+  });
+  document.addEventListener('mouseleave', () => { mouse.active = false; });
+})();
+
+/* Resume download alert */
+document.querySelectorAll('#resume-dl,#resume-dl2').forEach(el => {
+  el.addEventListener('click', function(e) {
+    if (this.getAttribute('href') === '#') {
+      e.preventDefault();
+      alert('Replace the href with your actual PDF path.');
+    }
+  });
+});
+</script>
+</body>
+</html>

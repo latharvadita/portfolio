@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TaskMaster — Vadita Lathar</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #060606;
+  --text: #f0f0f0;
+  --muted: #555;
+  --muted2: #888;
+  --border: rgba(255,255,255,0.07);
+  --border-bright: rgba(255,255,255,0.18);
+  --glass: rgba(255,255,255,0.03);
+  --glass-hover: rgba(255,255,255,0.06);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  line-height:1.65;
+  overflow-x:hidden;
+}
+body::after{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:9990;
+}
+
+/* NAV */
+nav{
+  position:fixed;top:24px;left:50%;transform:translateX(-50%);
+  z-index:1000;display:flex;align-items:center;gap:4px;
+  padding:8px 12px;
+  background:rgba(8,8,8,0.8);
+  backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);
+  border:1px solid var(--border);border-radius:100px;
+}
+nav a{
+  color:var(--muted);text-decoration:none;font-size:11.5px;
+  letter-spacing:0.06em;font-weight:500;
+  padding:6px 16px;border-radius:100px;
+  transition:all .2s;
+}
+nav a:hover{color:#fff;background:rgba(255,255,255,0.06);}
+
+/* HERO */
+.project-hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:140px 8% 80px;
+  position:relative;
+  border-bottom:1px solid var(--border);
+}
+.project-hero::before{
+  content:'01';
+  position:absolute;right:-1%;bottom:-4%;
+  font-family:'DM Serif Display',serif;
+  font-size:28vw;line-height:1;
+  color:rgba(255,255,255,0.018);
+  pointer-events:none;user-select:none;
+  letter-spacing:-0.05em;
+}
+.back-link{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--muted2);text-decoration:none;
+  font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  margin-bottom:60px;transition:color .2s;width:fit-content;
+}
+.back-link::before{content:'←';font-size:14px;}
+.back-link:hover{color:#fff;}
+.project-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:10px;letter-spacing:0.25em;text-transform:uppercase;
+  color:rgba(255,255,255,0.5);margin-bottom:28px;
+}
+.project-eyebrow span{display:inline-block;width:28px;height:1px;background:rgba(255,255,255,0.4);}
+.project-eyebrow strong{
+  color:#fff;font-weight:500;
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:100px;padding:3px 12px;
+  letter-spacing:0.2em;font-size:9px;
+}
+h1.project-title{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(3.5rem,7vw,7rem);
+  line-height:0.9;letter-spacing:-0.03em;
+  color:#fff;margin-bottom:32px;max-width:800px;
+}
+h1.project-title em{font-style:italic;color:rgba(255,255,255,0.45);}
+.project-hero-meta{
+  display:flex;gap:40px;flex-wrap:wrap;align-items:flex-start;
+  border-top:1px solid var(--border);padding-top:32px;margin-top:8px;
+}
+.meta-label{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.meta-value{font-size:0.9rem;color:#ccc;font-weight:400;}
+.hero-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
+.hero-tag{
+  font-size:9.5px;padding:4px 12px;
+  border:1px solid var(--border);border-radius:100px;
+  color:var(--muted);letter-spacing:0.05em;
+}
+
+/* FIGMA EMBED SECTION */
+.figma-section{
+  padding:100px 8%;
+  border-bottom:1px solid var(--border);
+  text-align:center;
+}
+.figma-frame-wrap{
+  position:relative;
+  max-width:860px;
+  margin:0 auto;
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  background:#0a0a0a;
+}
+.figma-frame-wrap iframe{
+  width:100%;
+  height:500px;
+  display:block;
+  border:none;
+}
+.figma-fallback{
+  padding:60px 40px;
+  display:flex;flex-direction:column;align-items:center;gap:16px;
+}
+.figma-fallback p{font-size:0.85rem;color:var(--muted2);max-width:400px;line-height:1.7;}
+.figma-caption{
+  margin-top:16px;font-size:11px;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--muted);
+}
+
+/* CONTENT SECTIONS */
+.content-section{
+  padding:100px 8%;
+  border-bottom:1px solid var(--border);
+  display:grid;
+  grid-template-columns:200px 1fr;
+  gap:0 80px;
+}
+.content-label{
+  font-size:9px;letter-spacing:0.35em;text-transform:uppercase;
+  color:var(--muted2);
+  display:flex;align-items:flex-start;gap:12px;padding-top:6px;
+}
+.content-label::before{content:'';width:6px;height:6px;border-radius:50%;background:#fff;flex-shrink:0;margin-top:2px;}
+.content-body h2{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(1.8rem,3vw,2.6rem);
+  letter-spacing:-0.025em;color:#fff;
+  margin-bottom:28px;line-height:1.05;
+}
+.content-body h2 em{font-style:italic;color:rgba(255,255,255,0.45);}
+.content-body p{
+  font-size:0.92rem;color:var(--muted2);
+  line-height:1.9;margin-bottom:20px;max-width:640px;
+}
+.content-body p:last-child{margin-bottom:0;}
+.content-body p strong{color:#ddd;font-weight:500;}
+.content-body p em{color:#bbb;font-style:italic;}
+
+/* STAT ROW */
+.stat-row{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;border:1px solid var(--border);border-radius:16px;
+  overflow:hidden;margin-top:36px;
+}
+.stat-item{
+  background:var(--glass);padding:28px 32px;
+  border-right:1px solid var(--border);transition:background .3s;
+}
+.stat-item:last-child{border-right:none;}
+.stat-item:hover{background:var(--glass-hover);}
+.stat-num{
+  font-family:'DM Serif Display',serif;
+  font-size:2.4rem;color:#fff;letter-spacing:-0.03em;
+  margin-bottom:6px;line-height:1;
+}
+.stat-num em{font-style:italic;color:rgba(255,255,255,0.4);font-size:1.8rem;}
+.stat-desc{font-size:0.78rem;color:var(--muted2);line-height:1.5;}
+
+/* FINDINGS GRID */
+.findings-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;border:1px solid var(--border);border-radius:16px;
+  overflow:hidden;margin-top:32px;
+}
+.finding-item{
+  background:var(--glass);padding:28px 32px;
+  border-right:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  transition:background .3s;
+}
+.finding-item:hover{background:var(--glass-hover);}
+.finding-item:nth-child(even){border-right:none;}
+.finding-item:nth-last-child(-n+2){border-bottom:none;}
+.finding-pct{
+  font-family:'DM Serif Display',serif;
+  font-size:1.8rem;color:#fff;letter-spacing:-0.02em;margin-bottom:8px;
+}
+.finding-label{font-size:0.8rem;color:var(--muted2);line-height:1.6;max-width:260px;}
+.finding-label strong{color:#ccc;}
+
+/* IMPROVEMENTS LIST */
+.improvements-list{
+  margin-top:32px;display:flex;flex-direction:column;gap:1px;
+  border:1px solid var(--border);border-radius:16px;overflow:hidden;
+}
+.improvement-item{
+  background:var(--glass);padding:24px 32px;
+  display:flex;align-items:flex-start;gap:20px;
+  border-bottom:1px solid var(--border);transition:background .3s;
+}
+.improvement-item:last-child{border-bottom:none;}
+.improvement-item:hover{background:var(--glass-hover);}
+.improvement-num{
+  font-family:'DM Serif Display',serif;
+  font-size:1.1rem;color:rgba(255,255,255,0.2);
+  flex-shrink:0;margin-top:2px;
+}
+.improvement-text{font-size:0.88rem;color:var(--muted2);line-height:1.7;}
+.improvement-text strong{color:#ccc;}
+
+/* CONCEPTS */
+.concepts-row{
+  display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;
+}
+.concept-pill{
+  font-size:12px;font-weight:500;padding:9px 20px;
+  border:1px solid var(--border);border-radius:100px;
+  color:var(--muted2);background:var(--glass);transition:all .22s;
+}
+.concept-pill:hover{border-color:rgba(255,255,255,0.28);color:#fff;background:rgba(255,255,255,0.06);}
+
+/* BACK CTA */
+.back-cta{
+  padding:120px 8%;text-align:center;
+  position:relative;overflow:hidden;
+}
+.back-cta::before{
+  content:'→';position:absolute;left:50%;top:50%;
+  transform:translate(-50%,-50%);
+  font-family:'DM Serif Display',serif;
+  font-size:40vw;color:rgba(255,255,255,0.012);
+  pointer-events:none;user-select:none;line-height:1;
+}
+.back-cta-inner{position:relative;z-index:2;}
+.back-cta h2{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(2rem,4vw,3.5rem);
+  letter-spacing:-0.03em;color:#fff;margin-bottom:16px;line-height:1;
+}
+.back-cta h2 em{font-style:italic;color:rgba(255,255,255,0.4);}
+.back-cta p{font-size:0.9rem;color:var(--muted);margin-bottom:40px;}
+.btn-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn{
+  padding:13px 32px;border-radius:100px;text-decoration:none;
+  font-size:12.5px;font-weight:500;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:all .25s;letter-spacing:0.03em;
+}
+.btn-primary{background:#fff;color:#000;}
+.btn-primary:hover{background:rgba(255,255,255,0.88);transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,255,255,0.15);}
+.btn-ghost{border:1px solid rgba(255,255,255,0.35);color:#e0e0e0;backdrop-filter:blur(10px);background:rgba(255,255,255,0.05);}
+.btn-ghost:hover{border-color:#fff;color:#fff;background:rgba(255,255,255,0.1);transform:translateY(-2px);}
+
+footer{
+  padding:36px 8%;border-top:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;
+  color:#2a2a2a;font-size:11px;letter-spacing:0.05em;
+}
+
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .content-section{grid-template-columns:140px 1fr;gap:0 48px;}
+  .stat-row{grid-template-columns:1fr 1fr 1fr;}
+}
+@media(max-width:768px){
+  nav{top:14px;padding:6px 10px;}
+  nav a{font-size:10.5px;padding:5px 11px;}
+  .project-hero{padding:120px 6% 60px;}
+  .figma-section,.content-section{padding:70px 6%;}
+  .content-section{grid-template-columns:1fr;gap:24px 0;}
+  .content-label{padding-top:0;}
+  .stat-row{grid-template-columns:1fr;}
+  .stat-item{border-right:none;border-bottom:1px solid var(--border);}
+  .stat-item:last-child{border-bottom:none;}
+  .findings-grid{grid-template-columns:1fr;}
+  .finding-item{border-right:none;}
+  .finding-item:nth-last-child(-n+2){border-bottom:1px solid var(--border);}
+  .finding-item:last-child{border-bottom:none;}
+  .back-cta{padding:80px 6%;}
+  footer{padding:28px 6%;flex-direction:column;gap:10px;text-align:center;}
+  .project-hero-meta{gap:24px;}
+  .figma-frame-wrap iframe{height:360px;}
+}
+@media(max-width:480px){
+  nav{width:calc(100% - 32px);justify-content:space-around;}
+  nav a{padding:5px 8px;font-size:10px;letter-spacing:0.03em;}
+  .project-hero{padding:100px 5% 50px;}
+  h1.project-title{font-size:clamp(2.8rem,11vw,4rem);}
+  .figma-section,.content-section{padding:60px 5%;}
+  .figma-frame-wrap iframe{height:280px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html">Home</a>
+  <a href="index.html#projects">Projects</a>
+  <a href="index.html#skills">Skills</a>
+  <a href="index.html#experience">Experience</a>
+  <a href="index.html#contact">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="project-hero">
+  <a href="index.html#projects" class="back-link">All Projects</a>
+  <div class="project-eyebrow"><span></span><strong>Project 01</strong></div>
+  <h1 class="project-title">Task<em>Master</em></h1>
+  <div class="project-hero-meta">
+    <div class="meta-item">
+      <div class="meta-label">Type</div>
+      <div class="meta-value">UI/UX Design · Prototype</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Team</div>
+      <div class="meta-value">Vadita Lathar, Breadan Polley,<br>Bingjun Li, William Tran</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Method</div>
+      <div class="meta-value">Think-Aloud · Survey</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Stack</div>
+      <div class="hero-tags">
+        <span class="hero-tag">Figma</span>
+        <span class="hero-tag">UI/UX</span>
+        <span class="hero-tag">Prototyping</span>
+        <span class="hero-tag">User Research</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIGMA EMBED -->
+<div class="figma-section reveal">
+  <div class="figma-frame-wrap">
+    <div class="figma-fallback">
+      <p>High-fidelity prototype built in Figma. Click below to explore the interactive mockup.</p>
+      <a href="https://www.figma.com/proto/g2MyvwyZz80lYfH5OSA2Ta/Task-Master-Mobile-Design?node-id=1-475&t=wG9oMKUbotR9uKKM-1&starting-point-node-id=1%3A475" class="btn btn-primary" target="_blank" rel="noopener">Open in Figma ↗</a>
+    </div>
+  </div>
+  <p class="figma-caption">High-fidelity prototype | Task creation, priority selection & progress tracking</p>
+</div>
+
+<!-- OVERVIEW -->
+<div class="content-section reveal">
+  <div class="content-label">Overview</div>
+  <div class="content-body">
+    <h2>Designed to<br><em>reduce friction</em></h2>
+    <p>
+      TaskMaster is a mobile task management app designed around one core principle:
+      <strong>reduce cognitive load</strong>. Tasks are organized into clear sections,
+      today's tasks, upcoming tasks, and progress, so users always know exactly where to look
+      and what to do next.
+    </p>
+    <p>
+      The design applies <strong>visual hierarchy</strong> throughout, prioritizing today's tasks
+      at the top while placing key actions like search and the "+" button at the bottom for
+      natural thumb reach. Consistency across labels, forms, and flows ensures users
+      build confidence quickly.
+    </p>
+    <p>
+      The prototype was evaluated using a <em>Think-Aloud Protocol</em> with 6 participants
+      and a follow-up survey, surfacing real usability insights that shaped a second iteration.
+    </p>
+  </div>
+</div>
+
+<!-- CONCEPTS -->
+<div class="content-section reveal">
+  <div class="content-label">Principles</div>
+  <div class="content-body">
+    <h2>Design thinking<br><em>applied</em></h2>
+    <p>
+      TaskMaster brought together human-computer interaction principles and real user feedback
+      in a tight loop: design, test, learn, iterate. Every decision was grounded in
+      how people actually behave, not how we assumed they would.
+    </p>
+    <div class="concepts-row">
+      <span class="concept-pill">Cognitive Load Reduction</span>
+      <span class="concept-pill">Visual Hierarchy</span>
+      <span class="concept-pill">Think-Aloud Protocol</span>
+      <span class="concept-pill">Error Prevention</span>
+      <span class="concept-pill">Consistency & Standards</span>
+      <span class="concept-pill">Visibility of System Status</span>
+      <span class="concept-pill">User-Centered Design</span>
+      <span class="concept-pill">Iterative Prototyping</span>
+    </div>
+  </div>
+</div>
+
+<!-- BACK CTA -->
+<div class="back-cta reveal">
+  <div class="back-cta-inner">
+    <h2>See more<br><em>projects</em></h2>
+    <p>Explore the rest of my work or get in touch.</p>
+    <div class="btn-row">
+      <a href="index.html#projects" class="btn btn-primary">All Projects</a>
+      <a href="index.html#contact" class="btn btn-ghost">Get In Touch</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>© 2026 Vadita Lathar</span>
+  <span>Built with curiosity &amp; code.</span>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
