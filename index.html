@@ -129,7 +129,7 @@ h1.hero-name em{font-style:italic;color:rgba(255,255,255,0.55);}
   overflow:visible;
   clip-path:inset(0 0 0 0);
 }
-#lanyard-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:default;}
+#lanyard-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:default;touch-action:none;}
 
 /* Scroll indicator */
 .scroll-hint{
@@ -417,7 +417,7 @@ footer{
   .hero-subtitle{font-size:1rem;}
   .hero-quote{font-size:0.78rem;}
 
-  #lanyard-wrap{height:480px;min-height:480px;}
+  #lanyard-wrap{height:520px;min-height:520px;}
 
   .btn{padding:11px 24px;font-size:12px;}
   .contact-tagline{font-size:clamp(2rem,8vw,3rem);}
@@ -628,11 +628,16 @@ document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
   // 1. ADD YOUR PHOTO URL HERE
   const cardProfileImg = new Image();
-  cardProfileImg.src = 'images/lathar.jpg'; 
+  cardProfileImg.src = 'images/lathar.jpg';
+
+  let dpr = 1, logicalW = 0, logicalH = 0;
 
   function resize() {
-    canvas.width = wrap.offsetWidth;
-    canvas.height = wrap.offsetHeight;
+    dpr = window.devicePixelRatio || 1;
+    logicalW = wrap.offsetWidth;
+    logicalH = wrap.offsetHeight;
+    canvas.width = logicalW * dpr;
+    canvas.height = logicalH * dpr;
   }
   resize();
   window.addEventListener('resize', () => { resize(); init(); });
@@ -646,7 +651,7 @@ document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   let mouse = { x: -9999, y: -9999, active: false };
 
   function init() {
-    anchorX = canvas.width * 0.5;
+    anchorX = logicalW * 0.5;
     anchorY = 20; // visible ceiling anchor, not 0
     const segLen = ROPE_LEN / SEG;
     pts = [];
@@ -727,7 +732,8 @@ document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   }
 
   function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, logicalW, logicalH);
     simulate();
 
     // Ceiling hook
@@ -824,6 +830,18 @@ document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     mouse.active = false;
   });
   document.addEventListener('mouseleave', () => { mouse.active = false; });
+
+  // Touch support for mobile
+  wrap.addEventListener('touchmove', e => {
+    e.preventDefault();
+    const r = canvas.getBoundingClientRect();
+    const t = e.touches[0];
+    mouse.x = t.clientX - r.left;
+    mouse.y = t.clientY - r.top;
+    mouse.active = true;
+  }, { passive: false });
+  wrap.addEventListener('touchend', () => { mouse.active = false; });
+  wrap.addEventListener('touchcancel', () => { mouse.active = false; });
 })();
 
 /* Resume download alert */
